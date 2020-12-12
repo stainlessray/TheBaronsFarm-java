@@ -14,7 +14,8 @@ class Farm {
 
     private final Integer HORSE_COUNT = 10;
     private final Integer MAX_STABLES = 3;
-    private final Integer CHICKEN_COUPS = 4;
+    private final Integer CHICKEN_COUNT = 15;
+    private final Integer MAX_COUPS = 4;
     private final Integer CROP_ROW = 5;
 
     public static void main(String[] args) {
@@ -25,10 +26,28 @@ class Farm {
         System.out.println("Initializing farm");
         createPeople();
         createStables();
+        createChickenCoups();
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             DaysOfTheWeek today = day;
             System.out.println(today);
         }
+    }
+
+    private void createChickenCoups() {
+        System.out.println("Creating Chicken Coups");
+        int count = 0;
+        for (int i = 0; i < MAX_COUPS; i++) {
+
+            for ( int k = 0; k < CHICKEN_COUNT / MAX_COUPS + 1; k++ ) {
+                count +=1;
+                chickenCoups.put("coup" + (i + 1), k + 1);
+                System.out.println("Added a chicken to coup" + (i + 1));
+                if (count == CHICKEN_COUNT)
+                    break;
+            }
+        }
+
+        System.out.printf("Coups complete%n%s%n ", chickenCoups.toString());
     }
 
     private void createStables() {
@@ -38,14 +57,13 @@ class Farm {
 
             for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
                 count += 1;
-
                 stables.put("stable" + (i + 1), k + 1);
                 System.out.println("Added a horse to stable" + (i + 1));
                 if (count == HORSE_COUNT)
                     break;
             }
         }
-        System.out.printf("Stables complete %s %n", stables.toString());
+        System.out.printf("Stables complete%n%s%n ", stables.toString());
     }
 
     public String getStables() {
@@ -57,8 +75,8 @@ class Farm {
             allStables.append("stable").append(i + 1 + " ").append(currentStable + "\n");
         }
 
-        System.out.println(allStables);
-        return allStables.toString();
+        System.out.println(new String(allStables));
+        return new String(allStables);
     }
 
     public String getFarmHouse() {
