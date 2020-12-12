@@ -37,33 +37,35 @@ class Farm {
         System.out.println("Creating Chicken Coups");
         int count = 0;
         for (int i = 0; i < MAX_COUPS; i++) {
-
+            System.out.println("Adding chickens to coup" + (i + 1));
             for ( int k = 0; k < CHICKEN_COUNT / MAX_COUPS + 1; k++ ) {
+
                 count +=1;
+                System.out.println(count);
                 chickenCoups.put("coup" + (i + 1), k + 1);
-                System.out.println("Added a chicken to coup" + (i + 1));
+
                 if (count == CHICKEN_COUNT)
                     break;
             }
         }
-
-        System.out.printf("Coups complete%n%s%n ", chickenCoups.toString());
+        System.out.printf("Coups complete%n%s%n", chickenCoups.toString());
     }
 
     private void createStables() {
         System.out.println("Creating stables");
         int count = 0;
         for (int i = 0; i < MAX_STABLES; i++) {
-
+            System.out.println("Adding horses to stable" + (i + 1));
             for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
                 count += 1;
+                System.out.println(count);
                 stables.put("stable" + (i + 1), k + 1);
-                System.out.println("Added a horse to stable" + (i + 1));
+                //System.out.println("Added a horse to stable" + (i + 1));
                 if (count == HORSE_COUNT)
                     break;
             }
         }
-        System.out.printf("Stables complete%n%s%n ", stables.toString());
+        System.out.printf("Stables complete%n%s%n", stables.toString());
     }
 
     public String getStables() {
