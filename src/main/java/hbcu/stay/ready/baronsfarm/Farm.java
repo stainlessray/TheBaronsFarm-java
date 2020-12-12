@@ -1,7 +1,6 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +22,7 @@ class Farm {
     }
 
     public Farm() {
-
+        System.out.println("Initializing farm");
         createPeople();
         createStables();
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
@@ -33,19 +32,22 @@ class Farm {
     }
 
     private void createStables() {
-
+        System.out.println("Creating stables");
         int count = 0;
         for (int i = 0; i < MAX_STABLES; i++) {
 
             for (int k = 0; k < HORSE_COUNT / 3 + 1; k++) {
                 count += 1;
-                stables.put("stable" + (i + 1), k + 1);
 
+                stables.put("stable" + (i + 1), k + 1);
+                System.out.println("Added a horse to stable" + (i + 1));
                 if (count == HORSE_COUNT)
                     break;
             }
         }
-        System.out.println(stables.toString());
+        System.out.printf("Stables complete %s %n",
+                stables.toString());
+        //System.out.println(stables.toString());
     }
 
     public String getStables() {
@@ -61,14 +63,15 @@ class Farm {
     }
 
     public String getFarmHouse() {
-        String farmHands = farmHouse.toString(); //Arrays.toString(farmHouse.toArray());
+        String farmHands = farmHouse.toString();
         System.out.printf("Person objects stored in the farmhouse %s %n", farmHands);
         return farmHands;
     }
 
     private void createPeople() {
 
-        String name = "Barron";
+        System.out.println("Creating people...");
+        String name = "Baron";
         String noise = "Throw your brackets up!";
         String name2 = "Baroness";
         String noise2 = "Start the engines!";

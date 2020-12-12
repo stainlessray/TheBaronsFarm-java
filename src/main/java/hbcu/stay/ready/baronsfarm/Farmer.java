@@ -18,8 +18,9 @@ public class Farmer extends Person implements Botanist, Rider {
         return this.name;
     }
 
-    public void makeSomeNoise() {
+    public String makeSomeNoise() {
         System.out.printf("I am the Farmer %s %s %n", name, noise);
+        return noise;
     }
 
     public void plantCrop() {

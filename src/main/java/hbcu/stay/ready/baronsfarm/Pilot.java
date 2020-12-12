@@ -16,8 +16,9 @@ public class Pilot extends Person {
         return this.name;
     }
 
-    public void makeSomeNoise() {
+    public String makeSomeNoise() {
         System.out.printf("I am the Pilot %s %s %n", name, noise);
+        return noise;
     }
 
     public void dustCrop() {
