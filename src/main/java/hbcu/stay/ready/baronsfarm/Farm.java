@@ -36,7 +36,7 @@ class Farm {
         int count = 0;
         for (int i = 0; i < MAX_STABLES; i++) {
 
-            for (int k = 0; k < HORSE_COUNT / 3 + 1; k++) {
+            for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
                 count += 1;
 
                 stables.put("stable" + (i + 1), k + 1);
@@ -45,9 +45,7 @@ class Farm {
                     break;
             }
         }
-        System.out.printf("Stables complete %s %n",
-                stables.toString());
-        //System.out.println(stables.toString());
+        System.out.printf("Stables complete %s %n", stables.toString());
     }
 
     public String getStables() {
@@ -58,6 +56,7 @@ class Farm {
             currentStable = stables.get("stable" + (i + 1));
             allStables.append("stable").append(i + 1 + " ").append(currentStable + "\n");
         }
+
         System.out.println(allStables);
         return allStables.toString();
     }
