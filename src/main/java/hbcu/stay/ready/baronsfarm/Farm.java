@@ -9,7 +9,6 @@ import java.util.Map;
 
 class Farm {
 
-    // Setup item storage
     private ArrayList<Person> farmHouse = new ArrayList<>();
     private Map<String, Integer> stables = new HashMap<>();
     private Map<String, Integer> chickenCoups = new HashMap<>();
@@ -20,54 +19,55 @@ class Farm {
     private final Integer CHICKEN_COUPS = 4;
     private final Integer CROP_ROW = 5;
 
+    public static void main(String[] args) {
+        Farm farm = new Farm();
+    }
 
     public Farm() {
+
         createPeople();
         createStables();
-        getStables();
-
-        // Actions for days of week can be called here
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             DaysOfTheWeek today = day;
             System.out.println(today);
         }
     }
 
-    private String createStables() {
-            int count = 0;
-            for (int i = 0; i < MAX_STABLES; i++) {
-                    for (int k = 0; k < HORSE_COUNT/3+1; k++) {
-                        count += 1;
-                        stables.put("stable" + (i + 1), k + 1 );
-                           if (count == HORSE_COUNT) {
-                                return "Complete";
-                            }
-                    }
-            }
-            System.out.println(stables.toString());
-            return getStables().toString();
-    }
+    private void createStables() {
 
+        int count = 0;
+        for (int i = 0; i < MAX_STABLES; i++) {
+
+            for (int k = 0; k < HORSE_COUNT / 3 + 1; k++) {
+                count += 1;
+                stables.put("stable" + (i + 1), k + 1);
+                if (count == HORSE_COUNT)
+                    break;
+
+            }
+        }
+        System.out.println(stables.toString());
+    }
 
     public String getStables() {
         Integer currentStable = 0;
         StringBuilder allStables = new StringBuilder();
 
-        for ( int i = 0; i < stables.size(); i++) {
-            currentStable = stables.get( "stable"+(i+1) );
-            allStables.append("stable").append(i+1+" ").append(currentStable + "\n");
+        for (int i = 0; i < stables.size(); i++) {
+            currentStable = stables.get("stable" + (i + 1));
+            allStables.append("stable").append(i + 1 + " ").append(currentStable + "\n");
         }
         System.out.println(allStables);
         return allStables.toString();
     }
 
     public String getFarmHouse() {
-        String farmHands = Arrays.toString(farmHouse.toArray());
+        String farmHands = farmHouse.toString(); //Arrays.toString(farmHouse.toArray());
         System.out.printf("Person objects stored in the farmhouse %s %n", farmHands);
         return farmHands;
     }
 
-    public String createPeople() {
+    private void createPeople() {
 
         String name = "Barron";
         String noise = "Throw your brackets up!";
@@ -81,10 +81,6 @@ class Farm {
         farmHouse.add(barron);
         farmHouse.add(baroness);
         farmHouse.add(froilan);
-        return getFarmHouse();
-    }
-
-    public static void main(String[] args) {
-        Farm farm = new Farm();
+        //return getFarmHouse();
     }
 }

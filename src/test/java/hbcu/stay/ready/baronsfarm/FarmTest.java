@@ -7,14 +7,25 @@ public class FarmTest {
 
     @Test
     public void testFarmConstructor() {
-        Farm actual = new Farm();
-        //System.out.println(actual);
-        //System.out.println(expected);
-        Assert.assertTrue(actual instanceof Farm);
+        Farm farm = new Farm();
+        Assert.assertTrue(farm instanceof Farm);
     }
 
     @Test
     public void testGetFarmhouse() {
-
+        Farm farm = new Farm();
+        //String expected = "Test";
+        String actual = farm.getFarmHouse();
+        System.out.println(actual);
+        Assert.assertTrue(actual.contains("Farmer"));
     }
+
+    @Test
+    public void testGetStables() {
+        Farm farm = new Farm();
+        String actual = farm.getStables();
+        Assert.assertTrue(actual.contains("stable3"));
+    }
+
+
 }
