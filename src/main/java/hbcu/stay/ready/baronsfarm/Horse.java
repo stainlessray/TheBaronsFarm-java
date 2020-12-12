@@ -1,7 +1,9 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Animal;
+import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 import hbcu.stay.ready.baronsfarm.interfaces.Rideable;
+import hbcu.stay.ready.baronsfarm.interfaces.Rider;
 
 public class Horse extends Animal implements Rideable {
     private final String noise = "Neigh!";
@@ -22,7 +24,8 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public void mountRideable() {
-
+    public void mountRideable(Rider rider) {
+        isMounted = true;
     }
+
 }

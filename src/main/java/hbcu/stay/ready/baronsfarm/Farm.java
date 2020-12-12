@@ -3,7 +3,6 @@ package hbcu.stay.ready.baronsfarm;
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,9 +40,9 @@ class Farm {
             for (int k = 0; k < HORSE_COUNT / 3 + 1; k++) {
                 count += 1;
                 stables.put("stable" + (i + 1), k + 1);
+
                 if (count == HORSE_COUNT)
                     break;
-
             }
         }
         System.out.println(stables.toString());

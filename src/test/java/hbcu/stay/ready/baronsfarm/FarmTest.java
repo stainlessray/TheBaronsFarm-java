@@ -26,6 +26,4 @@ public class FarmTest {
         String actual = farm.getStables();
         Assert.assertTrue(actual.contains("stable3"));
     }
-
-
 }
