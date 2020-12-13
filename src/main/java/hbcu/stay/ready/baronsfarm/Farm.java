@@ -2,22 +2,17 @@ package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class Farm {
+
+    private final Integer MAX_CROPROWS = 5;
+    private final Integer ROW_LENGTH =5;
 
     private ArrayList<Person> farmHouse = new ArrayList<>();
     private Map<String, Integer> stables = new HashMap<>();
     private Map<String, Integer> chickenCoups = new HashMap<>();
-    private Map<String, Integer> field = new HashMap<>();
-
-    private final Integer HORSE_COUNT = 10;
-    private final Integer MAX_STABLES = 3;
-    private final Integer CHICKEN_COUNT = 15;
-    private final Integer MAX_COUPS = 4;
-    private final Integer CROP_ROW = 5;
+    private Map<String, Boolean> field = new HashMap<>();
 
     public static void main(String[] args) {
         Farm farm = new Farm();
@@ -28,22 +23,44 @@ class Farm {
         createPeople();
         createStables();
         createChickenCoups();
+        createField();
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             DaysOfTheWeek today = day;
             System.out.println(today);
         }
     }
 
+    public void createField() {
+        System.out.printf("Tender plowing to create %d croprows " +
+                "that are %d parsecs long", MAX_CROPROWS, ROW_LENGTH);
+        List<String> cropList = Arrays.asList("Cornstalk",
+                "Tomato Plant",
+                "Sunflower",
+                "Straw",
+                "Flowers");
+
+        int count = 0;
+        for (String crop : cropList) {
+            System.out.println("Adding crops to croprows" + (crop));
+            field.put("cropRow " + crop, false);
+        }
+
+        System.out.printf("Croprows complete%n%s%n", field.toString());
+    }
+
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");
         int count = 0;
+
+        Integer MAX_COUPS = 4;
+        Integer CHICKEN_COUNT = 15;
 
         for (int i = 0; i < MAX_COUPS; i++) {
             System.out.println("Adding chickens to coup" + (i + 1));
 
             for (int k = 0; k < CHICKEN_COUNT / MAX_COUPS + 1; k++) {
                 count += 1;
-                System.out.println(count);
+                // System.out.println(count);
                 chickenCoups.put("coup" + (i + 1), k + 1);
                 if (count == CHICKEN_COUNT)
                     break;
@@ -52,19 +69,35 @@ class Farm {
         System.out.printf("Coups complete%n%s%n", chickenCoups.toString());
     }
 
+    public String getCoups() {
+        Integer currentCoup = 0;
+        StringBuilder allCoups = new StringBuilder();
+
+        for (int i = 0; i < chickenCoups.size(); i++) {
+            currentCoup = chickenCoups.get("coup" + (i + 1));
+            allCoups.append("coup").append(i + 1 + " ").append(currentCoup + "\n");
+        }
+
+        System.out.println(new String(allCoups));
+        return new String(allCoups);
+    }
+
+
     private void createStables() {
         System.out.println("Creating stables");
         int count = 0;
 
+        Integer MAX_STABLES = 3;
         for (int i = 0; i < MAX_STABLES; i++) {
             System.out.println("Adding horses to stable" + (i + 1));
 
+            Integer HORSE_COUNT = 10;
             for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
-                count += 1;
-                System.out.println(count);
-                stables.put("stable" + (i + 1), k + 1);
-                if (count == HORSE_COUNT)
+                if (count >= HORSE_COUNT)
                     break;
+                count += 1;
+                // System.out.println(count);
+                stables.put("stable" + (i + 1), k + 1);
             }
         }
         System.out.printf("Stables complete%n%s%n", stables.toString());
@@ -90,7 +123,6 @@ class Farm {
     }
 
     private void createPeople() {
-
         System.out.println("Creating people...");
         String name = "Baron";
         String noise = "Throw your brackets up!";

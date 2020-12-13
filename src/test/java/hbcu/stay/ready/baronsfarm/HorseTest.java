@@ -29,7 +29,7 @@ public class HorseTest {
     @Test
     public void testMountRideable() {
         Horse horse = new Horse();
-        horse.mountRideable(new Farmer("Baron", "throw your brackets up!"));
+        horse.mountRideable(new Farmer("Billy", "I have no standard noise because I'm a person!!!!"));
         String expected = "true";
         String actual = horse.getIsMounted();
         Assert.assertEquals(expected, actual);
