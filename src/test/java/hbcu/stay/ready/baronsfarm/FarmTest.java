@@ -3,7 +3,6 @@ package hbcu.stay.ready.baronsfarm;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class FarmTest {
 
     @Test
@@ -37,7 +36,16 @@ public class FarmTest {
     }
 
     @Test
-    public void testCreateField() {
+    public void testGetFieldOfCrops() {
+        String crops = new Farm().getFieldOfCrops();
+        System.out.println(crops);
+        Assert.assertTrue(crops.contains("Cornstalk"));
+    }
+
+    @Test
+    public void testFertilizeFieldOfCrops() {
         Farm farm = new Farm();
+        String actual = farm.fertilizeFieldOfCrops();
+        System.out.println(actual);
     }
 }

@@ -6,9 +6,6 @@ import java.util.*;
 
 class Farm {
 
-    private final Integer MAX_CROPROWS = 5;
-    private final Integer ROW_LENGTH =5;
-
     private ArrayList<Person> farmHouse = new ArrayList<>();
     private Map<String, Integer> stables = new HashMap<>();
     private Map<String, Integer> chickenCoups = new HashMap<>();
@@ -20,40 +17,76 @@ class Farm {
 
     public Farm() {
         System.out.println("Initializing farm");
-        createPeople();
+        createFarmhouse();
         createStables();
         createChickenCoups();
-        createField();
+        createFieldOfCrops();
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             DaysOfTheWeek today = day;
             System.out.println(today);
         }
     }
 
-    public void createField() {
-        System.out.printf("Tender plowing to create %d croprows " +
-                "that are %d parsecs long", MAX_CROPROWS, ROW_LENGTH);
+    private void createFieldOfCrops() {
+        Integer MAX_CROPROWS = 5;
+        Integer ROW_LENGTH = 5;
+
+        // this should be an enum in the next sprint
         List<String> cropList = Arrays.asList("Cornstalk",
                 "Tomato Plant",
                 "Sunflower",
                 "Straw",
                 "Flowers");
 
+        System.out.printf("Tender plowing to create %d croprows " +
+                "that are %d parsecs long %n", MAX_CROPROWS, ROW_LENGTH);
+
         int count = 0;
         for (String crop : cropList) {
-            System.out.println("Adding crops to croprows" + (crop));
-            field.put("cropRow " + crop, false);
+            System.out.printf("Adding %s to croprow%n", crop);
+            field.put(crop, false);
         }
 
         System.out.printf("Croprows complete%n%s%n", field.toString());
     }
 
+    public String getFieldOfCrops() {
+        List<String> cropList = Arrays.asList("Cornstalk",
+                "Tomato Plant",
+                "Sunflower",
+                "Straw",
+                "Flowers");
+
+        String currentCropRow = "";
+        StringBuilder allCropRows = new StringBuilder();
+        for (String crop : cropList ) {
+            currentCropRow = String.valueOf(field.get(crop));
+            allCropRows.append(crop + " " + currentCropRow + "\n");
+        }
+        return new String(allCropRows);
+    }
+
+    public String fertilizeFieldOfCrops() {
+        List<String> cropList = Arrays.asList("Cornstalk",
+                "Tomato Plant",
+                "Sunflower",
+                "Straw",
+                "Flowers");
+
+        for (String crop : cropList) {
+            field.replace(crop,true);
+        }
+        return getFieldOfCrops().toString();
+    }
+
+
+
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");
         int count = 0;
 
-        Integer MAX_COUPS = 4;
-        Integer CHICKEN_COUNT = 15;
+        int MAX_COUPS = 4;
+        int CHICKEN_COUNT = 15;
 
         for (int i = 0; i < MAX_COUPS; i++) {
             System.out.println("Adding chickens to coup" + (i + 1));
@@ -87,11 +120,11 @@ class Farm {
         System.out.println("Creating stables");
         int count = 0;
 
-        Integer MAX_STABLES = 3;
+        int MAX_STABLES = 3;
         for (int i = 0; i < MAX_STABLES; i++) {
             System.out.println("Adding horses to stable" + (i + 1));
 
-            Integer HORSE_COUNT = 10;
+            int HORSE_COUNT = 10;
             for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
                 if (count >= HORSE_COUNT)
                     break;
@@ -109,7 +142,9 @@ class Farm {
 
         for (int i = 0; i < stables.size(); i++) {
             currentStable = stables.get("stable" + (i + 1));
-            allStables.append("stable").append(i + 1 + " ").append(currentStable + "\n");
+            allStables.append("stable");
+            allStables.append(i + 1 + " ");
+            allStables.append(currentStable + "\n");
         }
 
         System.out.println(new String(allStables));
@@ -122,7 +157,7 @@ class Farm {
         return farmHands;
     }
 
-    private void createPeople() {
+    private void createFarmhouse() {
         System.out.println("Creating people...");
         String name = "Baron";
         String noise = "Throw your brackets up!";
