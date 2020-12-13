@@ -2,13 +2,12 @@ package hbcu.stay.ready.baronsfarm;
 class Farm {
 
     public static void main(String[] args) {
-        Farm farm = new Farm();
+        Farm instance = new Farm();
     }
 
     public Farm() {
         InitializeFarm farm = new InitializeFarm();
-        farm.fertilizeFieldOfCrops();
-        System.out.println(farm.getFieldOfCrops());
+        System.out.println(farm.fertilizeFieldOfCrops());
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
             System.out.println(day);
         }

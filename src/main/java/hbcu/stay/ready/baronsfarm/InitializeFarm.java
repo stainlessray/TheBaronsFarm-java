@@ -57,6 +57,7 @@ public class InitializeFarm {
     }
 
     public String fertilizeFieldOfCrops() {
+        System.out.println("Fertilizing the fields...");
         List<String> cropList = Arrays.asList("Cornstalk",
                 "Tomato Plant",
                 "Sunflower",
