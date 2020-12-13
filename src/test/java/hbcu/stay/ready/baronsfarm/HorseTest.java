@@ -7,12 +7,10 @@ import org.junit.Test;
 
 public class HorseTest {
 
-
     @BeforeClass
     public static void init() {
         Farm farm = new Farm();
     }
-
 
     @Test
     public void testHorseConstructor() {

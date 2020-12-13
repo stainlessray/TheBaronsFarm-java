@@ -1,6 +1,7 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
+import hbcu.stay.ready.baronsfarm.interfaces.Edible;
 
 public class Pilot extends Person {
     private final String name;
@@ -26,7 +27,7 @@ public class Pilot extends Person {
     }
 
     @Override
-    public void eatEdible() {
+    public void eatEdible(Edible edible) {
 
     }
 }

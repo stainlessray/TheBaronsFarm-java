@@ -15,7 +15,7 @@ public class ChickenTest {
     public void testMakeSomeNoise() {
         String expected = "cluck";
         String actual = new Chicken().makeSomeNoise();
-        Assert.assertTrue( actual.contains(expected) );
+        Assert.assertTrue(actual.contains(expected));
     }
 
     @Test

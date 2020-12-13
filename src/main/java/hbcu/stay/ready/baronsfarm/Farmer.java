@@ -2,6 +2,7 @@ package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 import hbcu.stay.ready.baronsfarm.interfaces.Botanist;
+import hbcu.stay.ready.baronsfarm.interfaces.Edible;
 import hbcu.stay.ready.baronsfarm.interfaces.Rider;
 
 public class Farmer extends Person implements Botanist, Rider {
@@ -27,8 +28,7 @@ public class Farmer extends Person implements Botanist, Rider {
         // todo create farm class before creating crop
     }
 
-    @Override
-    public void eatEdible() {
+    public void eatEdible(Edible edible) {
         // todo add code for eat edible after farm established
     }
 

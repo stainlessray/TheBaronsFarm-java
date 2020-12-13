@@ -1,6 +1,7 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,14 +37,14 @@ class Farm {
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");
         int count = 0;
+
         for (int i = 0; i < MAX_COUPS; i++) {
             System.out.println("Adding chickens to coup" + (i + 1));
-            for ( int k = 0; k < CHICKEN_COUNT / MAX_COUPS + 1; k++ ) {
 
-                count +=1;
+            for (int k = 0; k < CHICKEN_COUNT / MAX_COUPS + 1; k++) {
+                count += 1;
                 System.out.println(count);
                 chickenCoups.put("coup" + (i + 1), k + 1);
-
                 if (count == CHICKEN_COUNT)
                     break;
             }
@@ -54,13 +55,14 @@ class Farm {
     private void createStables() {
         System.out.println("Creating stables");
         int count = 0;
+
         for (int i = 0; i < MAX_STABLES; i++) {
             System.out.println("Adding horses to stable" + (i + 1));
+
             for (int k = 0; k < HORSE_COUNT / MAX_STABLES + 1; k++) {
                 count += 1;
                 System.out.println(count);
                 stables.put("stable" + (i + 1), k + 1);
-                //System.out.println("Added a horse to stable" + (i + 1));
                 if (count == HORSE_COUNT)
                     break;
             }
@@ -102,6 +104,5 @@ class Farm {
         farmHouse.add(barron);
         farmHouse.add(baroness);
         farmHouse.add(froilan);
-        //return getFarmHouse();
     }
 }

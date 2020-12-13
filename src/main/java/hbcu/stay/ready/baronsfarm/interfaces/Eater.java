@@ -1,5 +1,5 @@
 package hbcu.stay.ready.baronsfarm.interfaces;
 
 public interface Eater {
-    public void eatEdible();
+    public void eatEdible(Edible edible);
 }

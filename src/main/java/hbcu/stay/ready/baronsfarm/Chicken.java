@@ -1,13 +1,14 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Animal;
+import hbcu.stay.ready.baronsfarm.interfaces.Edible;
 import hbcu.stay.ready.baronsfarm.interfaces.YieldsEdible;
 
 public class Chicken extends Animal implements YieldsEdible {
     private static final Integer edibleCount = 1;
 
     @Override
-    public void eatEdible() {
+    public void eatEdible(Edible edible) {
         // todo
     }
 
@@ -17,7 +18,7 @@ public class Chicken extends Animal implements YieldsEdible {
     }
 
 
-    public Chicken () {
+    public Chicken() {
         makeSomeNoise();
     }
 

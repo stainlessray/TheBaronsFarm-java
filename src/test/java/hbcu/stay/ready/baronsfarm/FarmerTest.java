@@ -75,6 +75,6 @@ public class FarmerTest {
 
     @Test
     public void testDustCrop() {
-        // can't test until Farm is implemented
+        // can't test until cropduster and field is implemented
     }
 }
