@@ -8,6 +8,7 @@ public class EarCornTest {
     public void testEarCorn() {
         new Farm();
         new CreateFarm();
+        // todo needs assertion
         String actual = new Farmer("farmer test", "I have no sound").eatEdible(new EarCorn());
     }
 }

@@ -4,6 +4,7 @@ import java.util.*;
 
 public class CreateFarm {
 
+    // todo abstract these with abstract collections
     private ArrayList<String> farmHouse = new ArrayList<>();
     private Map<String, Integer> stables = new HashMap<>();
     private Map<String, Integer> chickenCoups = new HashMap<>();
@@ -15,7 +16,7 @@ public class CreateFarm {
     String froilan = "Farmer, Froilan, I'm ready for veggies!";
 
 
-
+    // todo make these enums
     List<String> cropList = Arrays.asList(
             "Cornstalk",
             "Tomato Plant",
@@ -31,8 +32,6 @@ public class CreateFarm {
             "Bails of Hay",
             "Flower Baskets");
 
-
-
     public CreateFarm() {
         System.out.println("Initializing farm");
         createFarmhouse();
@@ -42,7 +41,6 @@ public class CreateFarm {
         createProduce();
         System.out.println("Initialization complete..");
     }
-
 
     private void createFieldOfCrops() {
         Integer MAX_CROPROWS = 5;
@@ -55,6 +53,7 @@ public class CreateFarm {
             System.out.printf("Adding %s to croprow%n", crop);
             field.put(crop, false);
         }
+
         System.out.printf("Croprows complete%n%s%n", field.toString());
     }
 
@@ -69,6 +68,7 @@ public class CreateFarm {
             allCropRows.append(currentCropRow);
             allCropRows.append("\n");
         }
+
         return "Current crops and fertilized state\n" + allCropRows;
     }
 
@@ -79,6 +79,7 @@ public class CreateFarm {
         if (fieldSize == 0) {
             createFieldOfCrops();
         } else System.out.println("Field already has crops");
+
         return fieldSize;
     }
 
@@ -98,6 +99,7 @@ public class CreateFarm {
             allProduce.append(currentProduce);
             allProduce.append(" \n");
         }
+
         return "Current Produce \n" + allProduce.toString();
     }
 
@@ -155,6 +157,7 @@ public class CreateFarm {
                 field.replace(crop,true);
             }
             return getFieldOfCrops();
+
         } else return getFieldOfCrops();
     }
 
@@ -175,6 +178,7 @@ public class CreateFarm {
                     break;
             }
         }
+
         System.out.printf("Coups complete%n%s%n", chickenCoups.toString());
     }
 
@@ -208,6 +212,7 @@ public class CreateFarm {
                 stables.put("stable" + (i + 1), k + 1);
             }
         }
+
         System.out.printf("Stables complete%n%s%n", stables.toString());
     }
 

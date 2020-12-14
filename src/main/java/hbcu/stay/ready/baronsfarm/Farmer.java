@@ -29,7 +29,7 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public String eatEdible(Edible edible) {
-        return "ate a " + edible;
+        return "nom nom nom I ate a " + edible;
     }
 
     @Override

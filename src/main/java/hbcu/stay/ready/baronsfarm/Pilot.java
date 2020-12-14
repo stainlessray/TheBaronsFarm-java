@@ -23,12 +23,6 @@ public class Pilot extends Person implements Rider {
         return noise;
     }
 
-    //@Override
-    public void dustCrop() {
-
-        // todo create farm class before creating dustCrop
-    }
-
     @Override
     public String eatEdible(Edible edible) {
 
