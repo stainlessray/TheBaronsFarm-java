@@ -72,9 +72,4 @@ public class FarmerTest {
         String actual = name.getName();
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void testDustCrop() {
-        // can't test until cropduster and field is implemented
-    }
 }

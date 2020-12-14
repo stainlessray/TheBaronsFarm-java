@@ -24,8 +24,8 @@ public class CropDuster extends Vehicle implements Aircraft {
         return this.isMounted;
     }
 
-    public String getIsMounted() {
-        String mountStatus = this.isMounted.toString();
+    public Boolean getIsMounted() {
+        Boolean mountStatus = isMounted;
         return mountStatus;
     }
 }

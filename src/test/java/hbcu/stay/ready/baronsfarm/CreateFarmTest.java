@@ -48,7 +48,6 @@ public class CreateFarmTest {
         String actual = farm.fertilizeFieldOfCrops();
         System.out.println(actual);
         Assert.assertTrue(actual.contains("true"));
-
     }
 
     @Test
@@ -60,17 +59,16 @@ public class CreateFarmTest {
 
     @Test
     public void testPlantCrops() {
-        // todo
         CreateFarm farm = new CreateFarm();
         String actualCrops = farm.getFieldOfCrops();
-        Assert.assertTrue(actualCrops != null);
+        Assert.assertNotNull(actualCrops);
     }
 
     @Test
     public void testHarvestCrops() {
         CreateFarm farm = new CreateFarm();
         int plantCrops1 = farm.plantCrops();
-        String actual = farm.harvestCrops();
+        farm.harvestCrops();
         int plantCrops2 = farm.plantCrops();
         Assert.assertTrue(plantCrops1 > plantCrops2);
     }
@@ -80,13 +78,5 @@ public class CreateFarmTest {
         String actual = new CreateFarm().getProduce();
         System.out.println(actual);
         Assert.assertTrue(actual != null);
-    }
-
-    @Deprecated
-    // This test is unneeded because of the
-    // test testGetProduce. It tests that it is created
-    // after initial population on farm start
-    @Test
-    public void testCreateProduce() {
     }
 }

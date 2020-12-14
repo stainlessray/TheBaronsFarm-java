@@ -24,8 +24,8 @@ public class CropDusterTest {
     public void testMountRideable() {
         CropDuster cropDuster = new CropDuster();
         cropDuster.mountRideable(new Pilot("Baroness", "throw your brackets up!"));
-        String expected = "true";
-        String actual = cropDuster.getIsMounted();
+        Boolean expected = true;
+        Boolean actual = cropDuster.getIsMounted();
         Assert.assertEquals(expected, actual);
     }
 }

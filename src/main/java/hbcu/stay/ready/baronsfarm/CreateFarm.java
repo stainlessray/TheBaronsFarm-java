@@ -22,11 +22,13 @@ public class CreateFarm {
             "Flowers");
 
     List<String> produceList = Arrays.asList(
+            "Egg",
             "EarCorn",
             "Tomato",
             "Sunflowers",
             "Bails of Hay",
             "Flower Baskets");
+
 
 
     public CreateFarm() {
@@ -57,13 +59,16 @@ public class CreateFarm {
 
     public String getFieldOfCrops() {
 
-        String currentCropRow = "";
+        String currentCropRow;
         StringBuilder allCropRows = new StringBuilder();
         for (String crop : cropList ) {
             currentCropRow = String.valueOf(field.get(crop));
-            allCropRows.append(crop + " " + currentCropRow + "\n");
+            allCropRows.append(crop);
+            allCropRows.append(" ");
+            allCropRows.append(currentCropRow);
+            allCropRows.append("\n");
         }
-        return String.format("Current crops and fertilized state\n" + allCropRows);
+        return "Current crops and fertilized state\n" + allCropRows;
     }
 
     public int plantCrops() {
@@ -77,9 +82,9 @@ public class CreateFarm {
     }
 
     private void createProduce() {
-        edibleProduce.put("Egg", 0);
+        edibleProduce.put("Egg", 50);
         for (String produce : produceList) {
-            edibleProduce.put(produce, 0);
+            edibleProduce.put(produce, 5);
         }
     }
 
@@ -87,31 +92,55 @@ public class CreateFarm {
         StringBuilder allProduce = new StringBuilder();
         for ( String produce : produceList) {
             Integer currentProduce = edibleProduce.get(produce);
-            allProduce.append(produce + " " + currentProduce + " \n");
+            allProduce.append(produce);
+            allProduce.append(" ");
+            allProduce.append(currentProduce);
+            allProduce.append(" \n");
         }
         return "Current Produce \n" + allProduce.toString();
     }
 
     public String harvestCrops() {
         System.out.println("Harvesting the crops ");
-        String result = "";
+        String result;
+        String produceName = "";
         String produce = "";
         for (String crop : cropList) {
             int cropCount = 0;
             int yieldCount = 0;
-            int produceCount = 0;
+            int produceCount;
             Boolean currentFertilizerState = field.get(crop);
             //result = String.format(result + crop + " * " + currentFertilizerState.toString() + "%n");
-            if (currentFertilizerState == true) {
-                int currentProdCount = edibleProduce.get(crop);
-                //System.out.println(currentProdCount);
+            if (currentFertilizerState) {
+
+                String currentCrop = crop;
+                switch (currentCrop) {
+                    case "Cornstalk":
+                        produceName = "EarCorn";
+                        break;
+                    case "Tomato Plant":
+                        produceName = "Tomato";
+                        break;
+                    case "Sunflower":
+                        produceName = "Sunflowers";
+                        break;
+                    case "Straw":
+                        produceName = "Bails of Hay";
+                        break;
+                    case "Flowers":
+                        produceName = "Flower Baskets";
+                        break;
+                }
+
+                int currentProdCount = edibleProduce.get(produceName);
                 cropCount += 5;
                 yieldCount += 5;
                 produceCount = cropCount * yieldCount + currentProdCount;
-                produce = String.format(crop + " * " + produceCount);
-                edibleProduce.replace(crop, produceCount);
+                //produce = String.format(crop + " * " + produceCount);
+                edibleProduce.replace(produceName, produceCount);
             }
         }
+
         field.clear();
         result = edibleProduce.entrySet().toString();
         return result;
@@ -125,11 +154,9 @@ public class CreateFarm {
             for (String crop : cropList) {
                 field.replace(crop,true);
             }
-            return getFieldOfCrops().toString();
-        } else return getFieldOfCrops().toString();
+            return getFieldOfCrops();
+        } else return getFieldOfCrops();
     }
-
-
 
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");
@@ -152,7 +179,7 @@ public class CreateFarm {
     }
 
     public String getCoups() {
-        Integer currentCoup = 0;
+        Integer currentCoup;
         StringBuilder allCoups = new StringBuilder();
 
         for (int i = 0; i < chickenCoups.size(); i++) {
@@ -185,7 +212,7 @@ public class CreateFarm {
     }
 
     public String getStables() {
-        Integer currentStable = 0;
+        Integer currentStable;
         StringBuilder allStables = new StringBuilder();
 
         for (int i = 0; i < stables.size(); i++) {
