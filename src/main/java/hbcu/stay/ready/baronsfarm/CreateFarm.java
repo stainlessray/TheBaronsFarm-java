@@ -1,37 +1,45 @@
 package hbcu.stay.ready.baronsfarm;
 
-import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 import java.util.*;
 
-public class InitializeFarm {
+public class CreateFarm {
 
-    private ArrayList<Person> farmHouse = new ArrayList<>();
+    private ArrayList<String> farmHouse = new ArrayList<>();
     private Map<String, Integer> stables = new HashMap<>();
     private Map<String, Integer> chickenCoups = new HashMap<>();
     private Map<String, Boolean> field = new HashMap<>();
+    private Map<String, Integer> edibleProduce = new HashMap<>();
 
-    public InitializeFarm() {
+    String barron = "Farmer, Baron, Throw your brackets up";
+    String baroness = "Pilot, Baroness, Start the engines!";
+    String froilan = "Farmer, Froilan, I'm ready for veggies!";
+
+    List<String> cropList = Arrays.asList(
+            "Cornstalk",
+            "Tomato Plant",
+            "Sunflower",
+            "Straw",
+            "Flowers");
+
+
+    public CreateFarm() {
         System.out.println("Initializing farm");
         createFarmhouse();
         createStables();
         createChickenCoups();
         createFieldOfCrops();
+        createProduce();
+        System.out.println("Initialization complete..");
     }
+
+
     private void createFieldOfCrops() {
         Integer MAX_CROPROWS = 5;
         Integer ROW_LENGTH = 5;
 
-        // this should be an enum in the next sprint
-        List<String> cropList = Arrays.asList("Cornstalk",
-                "Tomato Plant",
-                "Sunflower",
-                "Straw",
-                "Flowers");
-
         System.out.printf("Tender plowing to create %d croprows " +
                 "that are %d parsecs long %n", MAX_CROPROWS, ROW_LENGTH);
 
-        int count = 0;
         for (String crop : cropList) {
             System.out.printf("Adding %s to croprow%n", crop);
             field.put(crop, false);
@@ -41,11 +49,6 @@ public class InitializeFarm {
     }
 
     public String getFieldOfCrops() {
-        List<String> cropList = Arrays.asList("Cornstalk",
-                "Tomato Plant",
-                "Sunflower",
-                "Straw",
-                "Flowers");
 
         String currentCropRow = "";
         StringBuilder allCropRows = new StringBuilder();
@@ -53,16 +56,62 @@ public class InitializeFarm {
             currentCropRow = String.valueOf(field.get(crop));
             allCropRows.append(crop + " " + currentCropRow + "\n");
         }
-        return new String(allCropRows);
+        return String.format("Current crops and fertilized state\n" + allCropRows);
+    }
+
+    public int plantCrops() {
+        System.out.println("Planting the field");
+        // todo check against fertilized state
+        int fieldSize = field.size();
+        if (fieldSize == 0) {
+            createFieldOfCrops();
+        } else System.out.println("Field already has crops");
+        return fieldSize;
+    }
+
+    private void createProduce() {
+        edibleProduce.put("Egg", 0);
+        for (String crop : cropList) {
+            edibleProduce.put(crop, 0);
+        }
+    }
+
+    public String getProduce() {
+        StringBuilder allProduce = new StringBuilder();
+        for ( String produce : cropList) {
+            Integer currentProduce = edibleProduce.get(produce);
+            allProduce.append(produce + " " + currentProduce + " \n");
+        }
+        return "Current Produce \n" + allProduce.toString();
+    }
+
+    public String harvestCrops() {
+        System.out.println("Harvesting the crops ");
+        String result = "";
+        String produce = "";
+        for (String crop : cropList) {
+            int cropCount = 0;
+            int yieldCount = 0;
+            int produceCount = 0;
+            Boolean currentFertilizerState = field.get(crop);
+            //result = String.format(result + crop + " * " + currentFertilizerState.toString() + "%n");
+            if (currentFertilizerState == true) {
+                int currentProdCount = edibleProduce.get(crop);
+                //System.out.println(currentProdCount);
+                cropCount += 5;
+                yieldCount += 5;
+                produceCount = cropCount * yieldCount + currentProdCount;
+                produce = String.format(crop + " * " + produceCount);
+                edibleProduce.replace(crop, produceCount);
+            }
+        }
+        field.clear();
+        result = edibleProduce.entrySet().toString();
+        return result;
     }
 
     public String fertilizeFieldOfCrops() {
         System.out.println("Fertilizing the fields...");
-        List<String> cropList = Arrays.asList("Cornstalk",
-                "Tomato Plant",
-                "Sunflower",
-                "Straw",
-                "Flowers");
 
         for (String crop : cropList) {
             field.replace(crop,true);
@@ -72,11 +121,10 @@ public class InitializeFarm {
 
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");
-        int count = 0;
 
+        int count = 0;
         int MAX_COUPS = 4;
         int CHICKEN_COUNT = 15;
-
         for (int i = 0; i < MAX_COUPS; i++) {
             System.out.println("Adding chickens to coup" + (i + 1));
 
@@ -139,25 +187,24 @@ public class InitializeFarm {
         return new String(allStables);
     }
 
+    // this gets object data from the farmHouse
     public String getFarmHouse() {
         String farmHands = farmHouse.toString();
         System.out.printf("Person objects stored in the farmhouse %s %n", farmHands);
         return farmHands;
     }
 
+    // this gets the data for creating objects for the farmHouse
+    public ArrayList getPeople() {
+        ArrayList people = farmHouse;
+        return people;
+    }
+
     private void createFarmhouse() {
         System.out.println("Creating people...");
-        String name = "Baron";
-        String noise = "Throw your brackets up!";
-        String name2 = "Baroness";
-        String noise2 = "Start the engines!";
-        String name3 = "Froilan";
-        String noise3 = "I'm ready for veggies!";
-        Farmer barron = new Farmer(name, noise);
-        Farmer froilan = new Farmer(name3, noise3);
-        Pilot baroness = new Pilot(name2, noise2);
         farmHouse.add(barron);
         farmHouse.add(baroness);
         farmHouse.add(froilan);
+        System.out.printf("People added to farmhouse %n %s %n", farmHouse.toString());
     }
 }

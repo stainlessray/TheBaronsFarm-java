@@ -25,7 +25,7 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public void plantCrop() {
-        // todo create farm class before creating crop
+        //moved to farm instance
     }
 
     public void eatEdible(Edible edible) {

@@ -1,25 +1,25 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Vehicle;
-import hbcu.stay.ready.baronsfarm.interfaces.FarmVehicle;
+import hbcu.stay.ready.baronsfarm.interfaces.Aircraft;
 import hbcu.stay.ready.baronsfarm.interfaces.Rider;
 
-public class Tractor extends Vehicle implements FarmVehicle {
+public class CropDuster extends Vehicle implements Aircraft {
     private Boolean isMounted = false;
-    private Rider tractorRider;
+    private Rider planeRider;
 
     @Override
     public String makeSomeNoise() {
-        String noise = "VROOOM CHUG CHUG CHUG";
+        String noise = "BRRRRRRR BRBR BRRRRRR!!!!";
         System.out.println(noise);
         return noise;
     }
 
     @Override
-    public Boolean mountRideable( Rider tractorRider ) {
+    public Boolean mountRideable(Rider planeRider) {
         isMounted = true;
-        this.tractorRider = tractorRider;
-        System.out.printf(this.tractorRider + " %n isMounted = " + isMounted.toString() + "%n");
+        this.planeRider = planeRider;
+        System.out.printf(this.planeRider + " %n isMounted = " + isMounted.toString() + "%n");
         makeSomeNoise();
         return this.isMounted;
     }

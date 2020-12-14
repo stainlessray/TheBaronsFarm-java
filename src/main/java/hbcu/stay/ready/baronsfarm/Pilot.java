@@ -2,8 +2,9 @@ package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.abstract_classes.Person;
 import hbcu.stay.ready.baronsfarm.interfaces.Edible;
+import hbcu.stay.ready.baronsfarm.interfaces.Rider;
 
-public class Pilot extends Person {
+public class Pilot extends Person implements Rider {
     private final String name;
     private final String noise;
 
@@ -22,7 +23,9 @@ public class Pilot extends Person {
         return noise;
     }
 
+    //@Override
     public void dustCrop() {
+
         // todo create farm class before creating dustCrop
     }
 
