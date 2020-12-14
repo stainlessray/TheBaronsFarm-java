@@ -2,7 +2,6 @@ package hbcu.stay.ready.baronsfarm;
 
 import org.junit.Assert;
 import org.junit.Test;
-import java.util.ArrayList;
 
 public class CreateFarmTest {
 
@@ -63,34 +62,31 @@ public class CreateFarmTest {
     public void testPlantCrops() {
         // todo
         CreateFarm farm = new CreateFarm();
-        farm.fertilizeFieldOfCrops();
-        String before = farm.getFieldOfCrops();
-        farm.harvestCrops();
-        String during = farm.getFieldOfCrops();
-        farm.plantCrops();
-        farm.fertilizeFieldOfCrops();
-        String after = farm.getFieldOfCrops();
-        System.out.println("***\n" +  before + " \n " + during + " \n " + after + "\n***");
-
+        String actualCrops = farm.getFieldOfCrops();
+        Assert.assertTrue(actualCrops != null);
     }
 
     @Test
     public void testHarvestCrops() {
-        // todo after adding getter for produce
-        // todo run this test against the produce array instead
-        // harvesting will clear the field. so it will always be the same number if
-        // using this rubric
         CreateFarm farm = new CreateFarm();
-        farm.fertilizeFieldOfCrops();
-        String first = farm.harvestCrops();
-        farm.plantCrops();
-        farm.fertilizeFieldOfCrops();
-        String second = farm.harvestCrops();
-        String field = farm.getFieldOfCrops();
-        System.out.printf("***%n" + field);
-        System.out.printf("First = %s%n Second = %s%n", first, second);
-        // Because the field is cleared between harvests
-        // the value should be the same each time = 0
-        // Assert.assertEquals(first);
+        int plantCrops1 = farm.plantCrops();
+        String actual = farm.harvestCrops();
+        int plantCrops2 = farm.plantCrops();
+        Assert.assertTrue(plantCrops1 > plantCrops2);
+    }
+
+    @Test
+    public void testGetProduce() {
+        String actual = new CreateFarm().getProduce();
+        System.out.println(actual);
+        Assert.assertTrue(actual != null);
+    }
+
+    @Deprecated
+    // This test is unneeded because of the
+    // test testGetProduce. It tests that it is created
+    // after initial population on farm start
+    @Test
+    public void testCreateProduce() {
     }
 }

@@ -21,6 +21,13 @@ public class CreateFarm {
             "Straw",
             "Flowers");
 
+    List<String> produceList = Arrays.asList(
+            "EarCorn",
+            "Tomato",
+            "Sunflowers",
+            "Bails of Hay",
+            "Flower Baskets");
+
 
     public CreateFarm() {
         System.out.println("Initializing farm");
@@ -71,14 +78,14 @@ public class CreateFarm {
 
     private void createProduce() {
         edibleProduce.put("Egg", 0);
-        for (String crop : cropList) {
-            edibleProduce.put(crop, 0);
+        for (String produce : produceList) {
+            edibleProduce.put(produce, 0);
         }
     }
 
     public String getProduce() {
         StringBuilder allProduce = new StringBuilder();
-        for ( String produce : cropList) {
+        for ( String produce : produceList) {
             Integer currentProduce = edibleProduce.get(produce);
             allProduce.append(produce + " " + currentProduce + " \n");
         }
@@ -111,13 +118,18 @@ public class CreateFarm {
     }
 
     public String fertilizeFieldOfCrops() {
-        System.out.println("Fertilizing the fields...");
 
-        for (String crop : cropList) {
-            field.replace(crop,true);
-        }
-        return getFieldOfCrops().toString();
+        String crops = getFieldOfCrops();
+        if (crops != null) {
+            System.out.println("Fertilizing the fields...");
+            for (String crop : cropList) {
+                field.replace(crop,true);
+            }
+            return getFieldOfCrops().toString();
+        } else return getFieldOfCrops().toString();
     }
+
+
 
     private void createChickenCoups() {
         System.out.println("Creating Chicken Coups");

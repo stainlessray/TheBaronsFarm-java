@@ -9,16 +9,17 @@ class Farm {
     }
     public Farm() {
         CreateFarm farm = new CreateFarm();
-
         ArrayList<String> people = farm.getPeople();
+
         for (String person : people) {
             String[] newPersons = person.split(",");
             String type = newPersons[0];
-            String name = newPersons[1];
+            String name = newPersons[1].trim();
             String noise = newPersons[2];
+            System.out.println("***" + name + "***");
             if (name.equals("Baron") || name.equals("Froilan")) {
                 //Farmer farmer = new Farmer(name, noise);
-                System.out.printf("Farmer %s mounts a tractor", name);
+                System.out.printf("Farmer %s mounts a tractor%n and yells %n...", name);
                 new Tractor().mountRideable(new Farmer(name, noise)); }
             else {
                 new CropDuster().mountRideable(new Pilot(name, noise));
