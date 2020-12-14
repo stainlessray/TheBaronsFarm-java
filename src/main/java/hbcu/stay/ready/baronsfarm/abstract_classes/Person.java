@@ -5,5 +5,5 @@ import hbcu.stay.ready.baronsfarm.interfaces.Edible;
 import hbcu.stay.ready.baronsfarm.interfaces.NoiseMaker;
 
 public abstract class Person implements Eater, NoiseMaker {
-    public abstract void eatEdible(Edible edible);
+    public abstract String eatEdible(Edible edible);
 }

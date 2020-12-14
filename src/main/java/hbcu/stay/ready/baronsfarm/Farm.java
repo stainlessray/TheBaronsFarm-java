@@ -7,60 +7,71 @@ class Farm {
     public static void main(String[] args) {
         new Farm();
     }
+
     public Farm() {
+        String name = "";
+        String type = "";
+        String noise = "";
+        Farmer baron = new Farmer(name, noise);
+        Farmer froilan = new Farmer(name, noise);
+        Pilot baroness = new Pilot(name, noise);
+
         CreateFarm farm = new CreateFarm();
         ArrayList<String> people = farm.getPeople();
 
         for (String person : people) {
             String[] newPersons = person.split(",");
-            String type = newPersons[0];
-            String name = newPersons[1].trim();
-            String noise = newPersons[2];
+            type = newPersons[0];
+            name = newPersons[1].trim();
+            noise = newPersons[2];
             System.out.println("***" + name + "***");
-            if (name.equals("Baron") || name.equals("Froilan")) {
-                System.out.printf("Farmer %s mounts a tractor%n and yells %n...", name);
-                new Tractor().mountRideable(new Farmer(name, noise));
-                if (farm.getFieldOfCrops().contains("true")) {
-                    farm.harvestCrops(); }
+            //if (name != null) {
+                switch (name) {
+                    case "Baron":
+                        baron = new Farmer(name, noise);
+                        System.out.println(baron);
+                        break;
 
-                }  else {
-                    new CropDuster().mountRideable(new Pilot(name, noise));
-                    farm.fertilizeFieldOfCrops();
+                    case "Baroness":
+                        baroness = new Pilot(name, noise);
+                        System.out.println(baroness);
+                        break;
+
+                    case "Froilan":
+                        froilan = new Farmer(name,noise);
+                        System.out.println(froilan);
+                        break;
             }
-            System.out.println(farm.getProduce());
         }
 
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
+
             switch (day) {
                 case MONDAY:
-                    System.out.println(day);
-
+                    baron.eatEdible(new Tomato());
                     break;
+
                 case TUESDAY:
-                    System.out.println(day);
-
+                    baron.eatEdible(new Egg());
                     break;
+
                 case WEDNESDAY:
-                    System.out.println(day);
-
                     break;
+
                 case THURSDAY:
-                    System.out.println(day);
 
                     break;
                 case FRIDAY:
-                    System.out.println(day);
 
                     break;
                 case SATURDAY:
-                    System.out.println(day);
 
                     break;
                 case SUNDAY:
-                    System.out.println(day);
 
                     break;
             }
+            System.out.println(day + "\n");
         }
     }
 }

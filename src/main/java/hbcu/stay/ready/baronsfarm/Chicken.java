@@ -8,8 +8,9 @@ public class Chicken extends Animal implements YieldsEdible {
     private static final Integer edibleCount = 1;
 
     @Override
-    public void eatEdible(Edible edible) {
+    public String eatEdible(Edible edible) {
         // todo
+        return null;
     }
 
     @Override

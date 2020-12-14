@@ -14,6 +14,8 @@ public class CreateFarm {
     String baroness = "Pilot, Baroness, Start the engines!";
     String froilan = "Farmer, Froilan, I'm ready for veggies!";
 
+
+
     List<String> cropList = Arrays.asList(
             "Cornstalk",
             "Tomato Plant",
@@ -53,7 +55,6 @@ public class CreateFarm {
             System.out.printf("Adding %s to croprow%n", crop);
             field.put(crop, false);
         }
-
         System.out.printf("Croprows complete%n%s%n", field.toString());
     }
 
@@ -136,7 +137,6 @@ public class CreateFarm {
                 cropCount += 5;
                 yieldCount += 5;
                 produceCount = cropCount * yieldCount + currentProdCount;
-                //produce = String.format(crop + " * " + produceCount);
                 edibleProduce.replace(produceName, produceCount);
             }
         }

@@ -14,8 +14,9 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public void eatEdible(Edible edible) {
+    public String eatEdible(Edible edible) {
         // todo implement after edible is implemented
+        return null;
     }
 
     @Override

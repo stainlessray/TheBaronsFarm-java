@@ -30,7 +30,8 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void eatEdible(Edible edible) {
+    public String eatEdible(Edible edible) {
 
+        return null;
     }
 }
