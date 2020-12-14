@@ -1,6 +1,7 @@
 package hbcu.stay.ready.baronsfarm;
 
 import hbcu.stay.ready.baronsfarm.interfaces.Edible;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TomatoTest {
@@ -10,6 +11,7 @@ public class TomatoTest {
         new Farm();
         CreateFarm farm = new CreateFarm();
         String actual = new Farmer("test", "I have no sound").eatEdible(new Tomato());
-        System.out.println(actual);
+        String expected = "ate";
+        Assert.assertTrue(actual.contains(expected));
     }
 }

@@ -9,7 +9,6 @@ public class Chicken extends Animal implements YieldsEdible {
 
     @Override
     public String eatEdible(Edible edible) {
-        // todo
         return null;
     }
 
