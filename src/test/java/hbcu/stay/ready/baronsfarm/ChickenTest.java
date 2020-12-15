@@ -13,6 +13,14 @@ public class ChickenTest {
     }
 
     @Test
+    public void testConstructor() {
+        String chicken = new Chicken().toString();
+        String expected = "Chicken";
+        Assert.assertTrue(chicken.contains(expected));
+
+    }
+
+    @Test
     public void testMakeSomeNoise() {
         String expected = "cluck";
         String actual = new Chicken().makeSomeNoise();
@@ -29,6 +37,15 @@ public class ChickenTest {
     public void testYieldEdible() {
         Edible egg = new Chicken().yieldEdible();
         String actual = egg.toString();
-        Assert.assertTrue(actual.contains("Egg"));
+        String expected = "Egg";
+        Assert.assertTrue(actual.contains(expected));
+    }
+
+    @Test
+    public void testEatEdible() {
+        Edible earCorn = new Chicken().eatEdible(new EarCorn());
+        String actual = earCorn.toString();
+        String expected = "EarCorn";
+        Assert.assertTrue(actual.contains(expected));
     }
 }

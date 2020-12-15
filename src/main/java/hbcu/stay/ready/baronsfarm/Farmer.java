@@ -24,7 +24,7 @@ public class Farmer extends Person implements Botanist, Rider {
         return noise;
     }
 
-    public void plantCrop() {
+    public void plantCrops() {
         // todo
     }
 
