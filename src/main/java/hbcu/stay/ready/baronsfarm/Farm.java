@@ -1,8 +1,5 @@
 package hbcu.stay.ready.baronsfarm;
 
-import hbcu.stay.ready.baronsfarm.interfaces.Edible;
-import hbcu.stay.ready.baronsfarm.interfaces.Rider;
-
 import java.util.ArrayList;
 
 class Farm {

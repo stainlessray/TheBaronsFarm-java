@@ -1,6 +1,5 @@
 package hbcu.stay.ready.baronsfarm;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,10 +25,9 @@ public class PilotTest {
 
     @Test
     public void testDustCrop() {
-        String expected = "Baroness";
-        String noise = "Start the engines!";
-        Pilot name = new Pilot(expected, noise);
-
-        // can't test until Farm is implemented
+        CreateFarm farm = new CreateFarm();
+        CropDuster cropDuster = new CropDuster();
+        String actual = farm.fertilizeFieldOfCrops(cropDuster);
+        Assert.assertTrue(actual.contains("true"));
     }
 }
