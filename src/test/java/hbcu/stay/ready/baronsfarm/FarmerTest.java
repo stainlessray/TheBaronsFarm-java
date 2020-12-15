@@ -51,7 +51,6 @@ public class FarmerTest {
         String name = "Barron";
         String noise = "Throw your brackets up!";
         Farmer actual = new Farmer(name, noise);
-        System.out.println(actual);
         Assert.assertTrue(actual instanceof Botanist);
     }
 
@@ -60,7 +59,6 @@ public class FarmerTest {
         String name = "Barron";
         String noise = "Throw your brackets up!";
         Farmer actual = new Farmer(name, noise);
-        System.out.println(actual);
         Assert.assertTrue(actual instanceof NoiseMaker);
     }
 
@@ -68,8 +66,8 @@ public class FarmerTest {
     public void testGetName() {
         String expected = "Barron";
         String noise = "Throw your brackets up!";
-        Farmer name = new Farmer(expected, noise);
-        String actual = name.getName();
+        Farmer farmer = new Farmer(expected, noise);
+        String actual = farmer.getName();
         Assert.assertEquals(expected, actual);
     }
 }

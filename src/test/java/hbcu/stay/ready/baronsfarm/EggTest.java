@@ -10,7 +10,8 @@ public class EggTest {
         new Farm();
         CreateFarm farm = new CreateFarm();
         String actual = String.valueOf(new Farmer("test", "I have no sound").eatEdible(new Egg()));
-        // todo needs assertion
+        String expected = "Egg";
+        Assert.assertTrue(actual.contains(expected));
     }
 }
 

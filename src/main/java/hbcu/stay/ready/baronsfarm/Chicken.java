@@ -21,7 +21,6 @@ public class Chicken extends Animal implements YieldsEdible {
 
     public Chicken() {
         makeSomeNoise();
-
     }
 
     @Override

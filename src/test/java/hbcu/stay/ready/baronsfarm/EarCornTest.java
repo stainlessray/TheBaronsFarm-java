@@ -1,5 +1,6 @@
 package hbcu.stay.ready.baronsfarm;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class EarCornTest {
@@ -8,7 +9,8 @@ public class EarCornTest {
     public void testEarCorn() {
         new Farm();
         new CreateFarm();
-        // todo needs assertion
         String actual = String.valueOf(new Farmer("farmer test", "I have no sound").eatEdible(new EarCorn()));
+        String expected = "EarCorn";
+        Assert.assertTrue(actual.contains(expected));
     }
 }

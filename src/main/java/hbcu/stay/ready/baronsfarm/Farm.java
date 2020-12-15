@@ -12,13 +12,11 @@ class Farm {
         String name = "";
         String type = "";
         String noise = "";
-        Farmer baron = new Farmer(name, noise);
-        Farmer froilan = new Farmer(name, noise);
-        Pilot baroness = new Pilot(name, noise);
+        Farmer baron;
+        Farmer froilan;
+        Pilot baroness;
 
         CreateFarm farm = new CreateFarm();
-
-
         ArrayList<String> people = farm.getPeople();
         String stableOfSteeds = farm.getStables();
         for (String person : people) {

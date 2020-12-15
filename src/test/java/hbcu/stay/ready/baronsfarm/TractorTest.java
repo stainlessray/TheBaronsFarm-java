@@ -17,7 +17,6 @@ public class TractorTest {
         String actual = tractor.makeSomeNoise();
         String expected = "VROOOM CHUG CHUG CHUG";
         Assert.assertEquals(expected, actual);
-
     }
 
     @Test

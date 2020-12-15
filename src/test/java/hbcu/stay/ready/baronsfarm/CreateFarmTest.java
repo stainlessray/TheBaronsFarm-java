@@ -38,7 +38,6 @@ public class CreateFarmTest {
     @Test
     public void testGetFieldOfCrops() {
         String crops = new CreateFarm().getFieldOfCrops();
-        System.out.println(crops);
         Assert.assertTrue(crops.contains("Cornstalk"));
     }
 
@@ -46,14 +45,12 @@ public class CreateFarmTest {
     public void testFertilizeFieldOfCrops() {
         CreateFarm farm = new CreateFarm();
         String actual = farm.fertilizeFieldOfCrops();
-        System.out.println(actual);
         Assert.assertTrue(actual.contains("true"));
     }
 
     @Test
     public void testGetPeople() {
         String people = new CreateFarm().getPeople().toString();
-        System.out.println(people);
         Assert.assertTrue(people.contains("Farmer"));
     }
 
@@ -87,21 +84,6 @@ public class CreateFarmTest {
             farm.fertilizeFieldOfCrops();
             farm.harvestCrops();
             farm.plantCrops();
-            System.out.println(farm.getProduce());
-
-
         }
-
-      /*  System.out.println(farm.getFieldOfCrops());
-        farm.fertilizeFieldOfCrops();
-        farm.harvestCrops();
-        farm.plantCrops();
-        System.out.println(farm.getProduce());
-        farm.fertilizeFieldOfCrops();
-        farm.harvestCrops();
-        farm.plantCrops();farm.fertilizeFieldOfCrops();
-        farm.harvestCrops();
-        farm.plantCrops();*/
-
     }
 }

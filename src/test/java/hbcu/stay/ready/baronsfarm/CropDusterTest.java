@@ -41,7 +41,6 @@ public class CropDusterTest {
         CreateFarm farm = new CreateFarm();
         CropDuster cropDuster = new CropDuster();
         Pilot pilot = new Pilot("test pilot", "hope I can fly");
-        //int fertile = new CropDuster().fertilizeField();
         int actual = pilot.cropDust(cropDuster).fertilizeField();
         int expected = 1;
         Assert.assertEquals(expected, actual);

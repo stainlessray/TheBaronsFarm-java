@@ -109,7 +109,6 @@ public class CreateFarm {
 
     public int plantCrops() {
         System.out.println("Planting the field");
-        // todo check against fertilized state
         int fieldSize = field.size();
         if (fieldSize == 0) {
             createFieldOfCrops();
@@ -210,6 +209,7 @@ public class CreateFarm {
     }
 
     private void createChickenCoups() {
+
         System.out.println("Creating Chicken Coups");
 
         int count = 0;

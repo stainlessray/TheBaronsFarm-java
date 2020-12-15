@@ -25,7 +25,7 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public void plantCrop() {
-        //moved to farm instance
+        // todo
     }
 
     public Edible eatEdible(Edible edible) {
@@ -34,6 +34,6 @@ public class Farmer extends Person implements Botanist, Rider {
 
     @Override
     public void plantCropRow(String cropRow, String crop) {
-        // todo implement code for plantCropRow after Fam established
+        // todo
     }
 }

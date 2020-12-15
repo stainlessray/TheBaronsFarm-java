@@ -28,7 +28,6 @@ public class ChickenTest {
     @Test
     public void testYieldEdible() {
         Edible egg = new Chicken().yieldEdible();
-        System.out.println(egg.toString());
         String actual = egg.toString();
         Assert.assertTrue(actual.contains("Egg"));
     }
