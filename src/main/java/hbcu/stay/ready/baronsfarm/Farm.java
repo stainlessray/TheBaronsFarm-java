@@ -24,7 +24,6 @@ class Farm {
 
         ArrayList<String> people = farm.getPeople();
         String stableOfSteeds = farm.getStables();
-        /*System.out.println(stableOfSteeds);*/
         for (String person : people) {
             String[] newPersons = person.split(",");
             type = newPersons[0];
@@ -66,40 +65,58 @@ class Farm {
                     break;
 
                 case TUESDAY:
-
-
-                    Edible egg = baron.eatEdible(new Egg());
-                    Edible tomato = froilan.eatEdible(new Tomato());
                     break;
 
                 case WEDNESDAY:
-
                     break;
 
                 case THURSDAY:
-
-
                     break;
+
                 case FRIDAY:
-
-
                     break;
+
                 case SATURDAY:
-
-
                     break;
+
                 case SUNDAY:
-
-
                     break;
             }
-
-
-
         }
-
-
-
     }
 
+    public String doDailyWork(DaysOfTheWeek day) {
+        CreateFarm farm = new CreateFarm();
+        System.out.println();
+        System.out.println("------------------------------------------");
+        System.out.println(day + "\n");
+        farm.everyMorning();
+        switch (day) {
+
+            case MONDAY:
+                farm.dayMonday();
+                System.out.println();
+                break;
+
+            case TUESDAY:
+                break;
+
+            case WEDNESDAY:
+                break;
+
+            case THURSDAY:
+                break;
+
+            case FRIDAY:
+                break;
+
+            case SATURDAY:
+                break;
+
+            case SUNDAY:
+                break;
+        }
+
+        return day.name();
+    }
 }
