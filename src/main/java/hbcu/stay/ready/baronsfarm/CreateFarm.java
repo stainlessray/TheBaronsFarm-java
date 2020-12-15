@@ -1,5 +1,8 @@
 package hbcu.stay.ready.baronsfarm;
 
+import hbcu.stay.ready.baronsfarm.interfaces.Edible;
+import hbcu.stay.ready.baronsfarm.interfaces.Rider;
+
 import java.util.*;
 
 public class CreateFarm {
@@ -11,7 +14,7 @@ public class CreateFarm {
     private Map<String, Boolean> field = new HashMap<>();
     private Map<String, Integer> edibleProduce = new HashMap<>();
 
-    String barron = "Farmer, Baron, Throw your brackets up";
+    String baron = "Farmer, Baron, Throw your brackets up";
     String baroness = "Pilot, Baroness, Start the engines!";
     String froilan = "Farmer, Froilan, I'm ready for veggies!";
 
@@ -39,12 +42,44 @@ public class CreateFarm {
         createChickenCoups();
         createFieldOfCrops();
         createProduce();
-        System.out.println("Initialization complete..");
+        System.out.println("----------------------------------------------------Initialization complete..");
+    }
+
+    public int everyMorning() {
+        System.out.println();
+
+        Farmer farmer = new Farmer("Baron", "It's time for breakfast");
+        int cornCount = 1;
+        int tomatoCount = 2;
+        int eggCount = 5;
+
+        Edible eggs = farmer.eatEdible(new Egg(eggCount));
+        Edible corns = farmer.eatEdible(new EarCorn(cornCount));
+        Edible tomatoes = farmer.eatEdible(new Tomato(tomatoCount));
+        System.out.printf("ate %d Eggs %nate %d Corn %nate %d Tomatoes%n", eggCount, cornCount, tomatoCount);
+
+
+        Pilot pilot = new Pilot("Baroness", "Let's eat");
+        cornCount = 2;
+        tomatoCount= 1;
+        eggCount = 2;
+        eggs = pilot.eatEdible(new Egg(eggCount));
+        corns = pilot.eatEdible(new EarCorn(cornCount));
+        tomatoes = pilot.eatEdible(new Tomato(tomatoCount));
+        System.out.printf("ate %d Eggs %nate %d Corn %nate %d Tomatoes%n", eggCount, cornCount, tomatoCount);
+        return 1;
+    }
+
+    public void dayMonday() {
+        System.out.println("**Monday from the created farm**");
+        Pilot pilot = new Pilot("Baroness", "Zoooom");
+        CropDuster cropDuster = new CropDuster();
+        fertilizeFieldOfCrops(cropDuster);
     }
 
     private void createFieldOfCrops() {
         Integer MAX_CROPROWS = 5;
-        Integer ROW_LENGTH = 5;
+        Integer ROW_LENGTH = 10;
 
         System.out.printf("Tender plowing to create %d croprows " +
                 "that are %d parsecs long %n", MAX_CROPROWS, ROW_LENGTH);
@@ -107,17 +142,16 @@ public class CreateFarm {
         System.out.println("Harvesting the crops ");
         String result;
         String produceName = "";
-        String produce = "";
+        //String produce = "";
+
         for (String crop : cropList) {
             int cropCount = 0;
             int yieldCount = 0;
             int produceCount;
             Boolean currentFertilizerState = field.get(crop);
-            //result = String.format(result + crop + " * " + currentFertilizerState.toString() + "%n");
-            if (currentFertilizerState) {
 
-                String currentCrop = crop;
-                switch (currentCrop) {
+            if (currentFertilizerState) {
+                switch (crop) {
                     case "Cornstalk":
                         produceName = "EarCorn";
                         break;
@@ -139,7 +173,8 @@ public class CreateFarm {
                 cropCount += 5;
                 yieldCount += 5;
                 produceCount = cropCount * yieldCount + currentProdCount;
-                edibleProduce.replace(produceName, produceCount);
+                if (produceName != "Egg")
+                    edibleProduce.replace(produceName, produceCount);
             }
         }
 
@@ -158,7 +193,20 @@ public class CreateFarm {
             }
             return getFieldOfCrops();
 
-        } else return getFieldOfCrops();
+        } else return null;
+    }
+
+    public String fertilizeFieldOfCrops(CropDuster cropDuster) {
+
+        String crops = getFieldOfCrops();
+        if (crops != null) {
+            System.out.println("Fertilizing the fields...");
+            for (String crop : cropList) {
+                field.replace(crop,true);
+            }
+            return getFieldOfCrops();
+
+        } else return null;
     }
 
     private void createChickenCoups() {
@@ -246,7 +294,7 @@ public class CreateFarm {
 
     private void createFarmhouse() {
         System.out.println("Creating people...");
-        farmHouse.add(barron);
+        farmHouse.add(baron);
         farmHouse.add(baroness);
         farmHouse.add(froilan);
         System.out.printf("People added to farmhouse %n %s %n", farmHouse.toString());

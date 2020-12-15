@@ -28,8 +28,8 @@ public class Farmer extends Person implements Botanist, Rider {
         //moved to farm instance
     }
 
-    public String eatEdible(Edible edible) {
-        return "nom nom nom I ate a " + edible;
+    public Edible eatEdible(Edible edible) {
+        return edible;
     }
 
     @Override

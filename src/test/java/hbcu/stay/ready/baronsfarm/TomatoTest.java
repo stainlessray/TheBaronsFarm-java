@@ -10,8 +10,9 @@ public class TomatoTest {
     public void testEatTomato() {
         new Farm();
         CreateFarm farm = new CreateFarm();
-        String actual = new Farmer("test", "I have no sound").eatEdible(new Tomato());
-        String expected = "ate";
+        String actual = String.valueOf(new Farmer("test", "I have no sound").eatEdible(new Tomato()));
+        System.out.println(actual);
+        String expected = "Tomato";
         Assert.assertTrue(actual.contains(expected));
     }
 }

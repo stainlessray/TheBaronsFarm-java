@@ -79,4 +79,29 @@ public class CreateFarmTest {
         System.out.println(actual);
         Assert.assertTrue(actual != null);
     }
+
+    @Test
+    public void testHarvestCycle() {
+        CreateFarm farm = new CreateFarm();
+        for (int i = 0; i < 10; i++) {
+            farm.fertilizeFieldOfCrops();
+            farm.harvestCrops();
+            farm.plantCrops();
+            System.out.println(farm.getProduce());
+
+
+        }
+
+      /*  System.out.println(farm.getFieldOfCrops());
+        farm.fertilizeFieldOfCrops();
+        farm.harvestCrops();
+        farm.plantCrops();
+        System.out.println(farm.getProduce());
+        farm.fertilizeFieldOfCrops();
+        farm.harvestCrops();
+        farm.plantCrops();farm.fertilizeFieldOfCrops();
+        farm.harvestCrops();
+        farm.plantCrops();*/
+
+    }
 }

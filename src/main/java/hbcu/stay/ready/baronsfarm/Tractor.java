@@ -16,12 +16,12 @@ public class Tractor extends Vehicle implements FarmVehicle {
     }
 
     @Override
-    public Boolean mountRideable( Rider tractorRider ) {
+    public Rider mountRideable(Rider tractorRider ) {
         isMounted = true;
         this.tractorRider = tractorRider;
         System.out.printf(this.tractorRider + " %n isMounted = " + isMounted.toString() + "%n");
         makeSomeNoise();
-        return this.isMounted;
+        return tractorRider;
     }
 
     public String getIsMounted() {

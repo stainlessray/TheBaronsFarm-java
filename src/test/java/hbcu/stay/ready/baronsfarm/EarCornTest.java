@@ -9,6 +9,6 @@ public class EarCornTest {
         new Farm();
         new CreateFarm();
         // todo needs assertion
-        String actual = new Farmer("farmer test", "I have no sound").eatEdible(new EarCorn());
+        String actual = String.valueOf(new Farmer("farmer test", "I have no sound").eatEdible(new EarCorn()));
     }
 }

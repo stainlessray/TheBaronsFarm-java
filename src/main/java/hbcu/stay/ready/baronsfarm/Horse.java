@@ -14,7 +14,7 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public String eatEdible(Edible edible) {
+    public Edible eatEdible(Edible edible) {
         // todo
         return null;
     }
@@ -27,11 +27,11 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public Boolean mountRideable(Rider horseRider) {
+    public Rider mountRideable(Rider horseRider) {
         isMounted = true;
         this.horseRider = horseRider;
         System.out.printf(this.horseRider + " %n isMounted = " + isMounted.toString());
-        return this.isMounted;
+        return horseRider;
     }
 
     public String getIsMounted() {

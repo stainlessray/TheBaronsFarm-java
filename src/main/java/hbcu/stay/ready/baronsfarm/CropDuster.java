@@ -4,9 +4,8 @@ import hbcu.stay.ready.baronsfarm.abstract_classes.Vehicle;
 import hbcu.stay.ready.baronsfarm.interfaces.Aircraft;
 import hbcu.stay.ready.baronsfarm.interfaces.Rider;
 
-public class CropDuster extends Vehicle implements Aircraft {
+    public class CropDuster extends Vehicle implements Aircraft {
     private Boolean isMounted = false;
-    private Rider planeRider;
 
     @Override
     public String makeSomeNoise() {
@@ -15,17 +14,20 @@ public class CropDuster extends Vehicle implements Aircraft {
         return noise;
     }
 
-    @Override
-    public Boolean mountRideable(Rider planeRider) {
+    //@Override
+    public Rider mountRideable(Rider planeRider) {
         isMounted = true;
-        this.planeRider = planeRider;
-        System.out.printf(this.planeRider + " %n isMounted = " + isMounted.toString() + "%n");
+        System.out.printf(planeRider + " %n isMounted = " + isMounted.toString() + "%n");
         makeSomeNoise();
-        return this.isMounted;
+        return planeRider;
     }
 
     public Boolean getIsMounted() {
-        Boolean mountStatus = isMounted;
-        return mountStatus;
+        //Boolean mountStatus = isMounted;
+        return isMounted;
+    }
+
+    public int fertilizeField() {
+        return 1;
     }
 }

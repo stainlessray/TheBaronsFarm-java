@@ -1,5 +1,8 @@
 package hbcu.stay.ready.baronsfarm;
 
+import hbcu.stay.ready.baronsfarm.interfaces.Edible;
+import hbcu.stay.ready.baronsfarm.interfaces.Rider;
+
 import java.util.ArrayList;
 
 class Farm {
@@ -17,15 +20,18 @@ class Farm {
         Pilot baroness = new Pilot(name, noise);
 
         CreateFarm farm = new CreateFarm();
-        ArrayList<String> people = farm.getPeople();
 
+
+        ArrayList<String> people = farm.getPeople();
+        String stableOfSteeds = farm.getStables();
+        /*System.out.println(stableOfSteeds);*/
         for (String person : people) {
             String[] newPersons = person.split(",");
             type = newPersons[0];
             name = newPersons[1].trim();
             noise = newPersons[2];
             System.out.println("***" + name + "***");
-            //if (name != null) {
+            if (name != null) {
                 switch (name) {
                     case "Baron":
                         baron = new Farmer(name, noise);
@@ -38,40 +44,62 @@ class Farm {
                         break;
 
                     case "Froilan":
-                        froilan = new Farmer(name,noise);
+                        froilan = new Farmer(name, noise);
                         System.out.println(froilan);
                         break;
+                }
             }
         }
 
+        System.out.println();
+        System.out.println("Beginning the work week");
         for (DaysOfTheWeek day : DaysOfTheWeek.values()) {
-
+            System.out.println();
+            System.out.println("------------------------------------------");
+            System.out.println(day + "\n");
+            farm.everyMorning();
             switch (day) {
+
                 case MONDAY:
-                    baron.eatEdible(new Tomato());
+                    farm.dayMonday();
+                    System.out.println();
                     break;
 
                 case TUESDAY:
-                    baron.eatEdible(new Egg());
+
+
+                    Edible egg = baron.eatEdible(new Egg());
+                    Edible tomato = froilan.eatEdible(new Tomato());
                     break;
 
                 case WEDNESDAY:
+
                     break;
 
                 case THURSDAY:
 
+
                     break;
                 case FRIDAY:
+
 
                     break;
                 case SATURDAY:
 
+
                     break;
                 case SUNDAY:
 
+
                     break;
             }
-            System.out.println(day + "\n");
+
+
+
         }
+
+
+
     }
+
 }

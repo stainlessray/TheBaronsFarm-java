@@ -9,7 +9,7 @@ public class EggTest {
     public void testEatEgg() {
         new Farm();
         CreateFarm farm = new CreateFarm();
-        String actual = new Farmer("test", "I have no sound").eatEdible(new Egg());
+        String actual = String.valueOf(new Farmer("test", "I have no sound").eatEdible(new Egg()));
         // todo needs assertion
     }
 }

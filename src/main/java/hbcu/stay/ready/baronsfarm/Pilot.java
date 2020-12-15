@@ -24,8 +24,10 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public String eatEdible(Edible edible) {
-
-        return null;
+    public Edible eatEdible(Edible edible) {
+        return edible;
+    }
+    public CropDuster cropDust(CropDuster cropDuster) {
+        return cropDuster;
     }
 }

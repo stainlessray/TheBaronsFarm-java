@@ -6,31 +6,32 @@ import hbcu.stay.ready.baronsfarm.interfaces.YieldsEdible;
 
 public class Chicken extends Animal implements YieldsEdible {
     private static final Integer edibleCount = 1;
+    private static final String noise = "cluck...cluckcluck...cluck";
 
     @Override
-    public String eatEdible(Edible edible) {
-        return null;
+    public Edible eatEdible(Edible edible) {
+        return edible;
     }
 
     @Override
-    public void yieldEdible() {
-        // todo
-    }
+    public Edible yieldEdible() {
+        return new Egg();
 
+    }
 
     public Chicken() {
         makeSomeNoise();
+
     }
 
     @Override
     public String makeSomeNoise() {
-        String noise = "cluck...cluckcluck...cluck";
         System.out.println(noise);
         return noise;
     }
 
     @Override
     public Integer getEdibleCount() {
-        return this.edibleCount;
+        return edibleCount;
     }
 }
