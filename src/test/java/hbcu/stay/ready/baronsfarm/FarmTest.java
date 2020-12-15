@@ -9,7 +9,14 @@ public class FarmTest {
         public void testTuesday(){
         String actual = new Farm().doDailyWork(DaysOfTheWeek.TUESDAY);
         String expected = "TUESDAY";
-        System.out.println(actual);
         Assert.assertEquals(expected, actual);
+        }
+
+        @Test
+        public void testConstructor(){
+        Farm farm = new Farm();
+        String actual = farm.toString();
+        String expected = "Farm";
+        Assert.assertTrue(actual.contains(expected));
         }
 }
